@@ -65,12 +65,16 @@ void Dynamic::RequestMove(Map& map, int width, int height, Thing::Direction dirX
 	if (map.GetHasOccupant(width, height)) {
 		occupant = map.AccessIndex(width, height).occupant;
 		//hlc COLLISION BUGGGGFSDLHJGLKFJDHGDFGL:FDG
+		
+
+		printf("\n\nLocation X world %d\n", occupant->GetWorldX);
+		printf("my X world %d\n", worldX);
 		switch (dirX)
 		{
 		case Thing::negative:
-			moveLeft = false;
-			if (occupant->worldX < worldX)
-				if (occupant->worldX + COLrADIUS > worldX - COLrADIUS) {
+			printf("\nX NEGATIVE XXXXX!\n");
+			if (occupant->GetWorldX() < worldX)
+				if (occupant->GetWorldX() + COLrADIUS > worldX - COLrADIUS) {
 					moveLeft = false;
 					printf("HERE!");
 				}
